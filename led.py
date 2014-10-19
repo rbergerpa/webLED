@@ -8,7 +8,6 @@ app = Flask(__name__, static_url_path='')
 
 LED_PIN = "gpio13"
 
-
 @app.route('/')
 def root():
     return app.send_static_file('index.html')
@@ -22,7 +21,6 @@ def led(id):
 
 def initLED():
     gpio.pinMode(LED_PIN, gpio.OUTPUT)
-
 
 # For gunicorn
 app.wsgi_app = ProxyFix(app.wsgi_app)
